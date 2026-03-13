@@ -1,12 +1,18 @@
 {
-  "name": "jane",
+  "name": "mindcalm",
   "version": "1.0.0",
-  "description": "Psychology, ASMR & Music for the Soul",
-  "main": "server.js",
+  "private": true,
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
     "start": "node server.js"
   },
-  "keywords": ["psychology", "asmr", "ambient", "sleep"],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
 }
