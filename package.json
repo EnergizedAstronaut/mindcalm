@@ -1,0 +1,12 @@
+{
+  "name": "jane",
+  "version": "1.0.0",
+  "description": "Psychology, ASMR & Music for the Soul",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["psychology", "asmr", "ambient", "sleep"],
+  "author": "",
+  "license": "ISC"
+}
