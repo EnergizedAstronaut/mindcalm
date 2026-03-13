@@ -25,9 +25,12 @@
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.8;overflow-x:hidden;}
 
+/* PROGRESS BAR */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--warm);z-index:300;width:0%;transition:width 0.1s linear;pointer-events:none;}
+
 /* SEARCH BAR */
 .search-bar-wrap {
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:2px;left:0;right:0;z-index:200;
   background:rgba(10,10,11,0.96);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
   padding:0.6rem 2rem;
@@ -39,11 +42,27 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
   font-size:0.75rem;letter-spacing:0.08em;padding:0.3rem 0;
 }
 .search-bar-wrap input::placeholder{color:var(--muted);}
-.s-icon{color:var(--muted);font-size:0.8rem;font-family:'DM Mono',monospace;}
+.s-icon{color:var(--muted);font-size:0.8rem;font-family:'DM Mono',monospace;cursor:text;}
+.s-shortcut{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--muted);opacity:0.5;border:1px solid var(--border);border-radius:2px;padding:0.1rem 0.3rem;letter-spacing:0;}
 #clearBtn{background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;transition:color 0.2s;opacity:0;pointer-events:none;}
 #clearBtn.vis{opacity:1;pointer-events:auto;}
 #clearBtn:hover{color:var(--warm);}
 .search-hidden{display:none!important;}
+
+/* BACK TO TOP */
+#toTop{position:fixed;bottom:2rem;right:2rem;z-index:150;width:36px;height:36px;background:var(--surface2);border:1px solid var(--border2);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s,border-color 0.2s,background 0.2s;font-size:0.9rem;color:var(--muted);}
+#toTop.vis{opacity:1;pointer-events:auto;}
+#toTop:hover{border-color:var(--warm);color:var(--warm);background:rgba(196,149,90,0.08);}
+
+/* MOOD BADGE on music cards */
+.mc-mood{position:absolute;top:0.4rem;left:0.4rem;font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.14rem 0.35rem;border-radius:2px;backdrop-filter:blur(4px);}
+.mc-mood.sleep{background:rgba(138,127,181,0.25);color:#b0a8d8;border:1px solid rgba(138,127,181,0.35);}
+.mc-mood.memory{background:rgba(196,149,90,0.22);color:#d4a86a;border:1px solid rgba(196,149,90,0.35);}
+.mc-mood.dream{background:rgba(110,154,130,0.22);color:#8abea8;border:1px solid rgba(110,154,130,0.35);}
+.mc-mood.rest{background:rgba(196,122,110,0.22);color:#d4906a;border:1px solid rgba(196,122,110,0.35);}
+
+/* TRACK COUNT */
+.track-count{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;color:var(--muted);margin-bottom:1.25rem;}
 
 /* HERO */
 .hero{
@@ -63,9 +82,11 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .hero-pill{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.32rem 0.85rem;border:1px solid rgba(196,149,90,0.2);border-radius:2px;color:var(--muted);}
 
 /* NAV */
-nav{position:sticky;top:40px;background:rgba(10,10,11,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;padding:0.75rem 2rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;}
-nav a{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-nav a:hover{color:var(--warm);}
+nav{position:sticky;top:40px;background:rgba(10,10,11,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;padding:0.75rem 2rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;overflow-x:auto;scrollbar-width:none;}
+nav::-webkit-scrollbar{display:none;}
+@media(max-width:700px){nav{justify-content:flex-start;flex-wrap:nowrap;padding:0.75rem 1.5rem;}}
+nav a{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+nav a:hover,nav a.active{color:var(--warm);}
 
 /* LAYOUT */
 main{max-width:980px;margin:0 auto;padding:0 2rem;}
@@ -237,8 +258,10 @@ p{color:#9a9088;margin-bottom:1rem;font-size:1rem;}
 
 footer{text-align:center;padding:3rem 2rem;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border);}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero-arrow{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.3rem;opacity:0;animation:fadeUp 1s 1.2s ease both;}
+.hero-arrow span{display:block;width:1px;height:32px;background:linear-gradient(to bottom,transparent,var(--warm));opacity:0.4;}
+.hero-arrow::after{content:'↓';font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--warm);opacity:0.4;letter-spacing:0.2em;animation:arrowBob 2s 2s ease-in-out infinite;}
+@keyframes arrowBob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
 @keyframes cardIn{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .reveal.vis{opacity:1;transform:translateY(0);}
@@ -247,9 +270,13 @@ mark{background:rgba(196,149,90,0.18);color:var(--warm2);border-radius:2px;paddi
 </head>
 <body>
 
+<div id="progress"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
 <div class="search-bar-wrap">
   <span class="s-icon">⌕</span>
   <input type="text" id="searchInput" placeholder="search music, psychology, creators…" autocomplete="off"/>
+  <span class="s-shortcut">/</span>
   <button id="clearBtn">✕ clear</button>
 </div>
 
@@ -269,6 +296,7 @@ mark{background:rgba(196,149,90,0.18);color:var(--warm2);border-radius:2px;paddi
     <span class="hero-pill">attraction</span>
     <span class="hero-pill">30-day program</span>
   </div>
+  <div class="hero-arrow"><span></span></div>
 </section>
 
 <nav>
@@ -326,6 +354,7 @@ mark{background:rgba(196,149,90,0.18);color:var(--warm2);border-radius:2px;paddi
         <button class="mfbtn" data-f="dream">Dream</button>
         <button class="mfbtn" data-f="rest">Safe / Rest</button>
       </div>
+      <div class="track-count" id="trackCount"></div>
       <div class="mgrid" id="musicGrid"></div>
     </div>
   </div>
@@ -603,19 +632,25 @@ function renderGrid(){
     if(!q) return true;
     return t.title.toLowerCase().includes(q)||t.tags.some(tag=>tag.includes(q));
   });
-  if(!filtered.length){grid.innerHTML='<p class="no-results">no tracks match.</p>';return;}
-  grid.innerHTML=filtered.map((t,i)=>`
+  if(!filtered.length){grid.innerHTML='<p class="no-results">no tracks match.</p>';document.getElementById('trackCount').textContent='';return;}
+  document.getElementById('trackCount').textContent=`showing ${filtered.length} track${filtered.length===1?'':'s'}`;
+  const moodColor={sleep:'sleep',memory:'memory',dream:'dream',rest:'rest'};
+  grid.innerHTML=filtered.map((t,i)=>{
+    const badge=t.tags&&t.tags[0]?`<span class="mc-mood ${moodColor[t.tags[0]]||''}">${t.tags[0]}</span>`:'';
+    return `
     <a class="mc" href="${t.url}" target="_blank" rel="noopener">
       <div class="mc-thumb">
         <img src="${t.thumb}" alt="" loading="lazy"/>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <span class="dur-badge">${t.dur}</span>
+        ${badge}
       </div>
       <div class="mc-body">
         <div class="mc-title">${re?t.title.replace(re,'<mark>$1</mark>'):t.title}</div>
         <div class="mc-meta"><span class="mc-stat"><span>▶</span> ${fmtV(t.views)}</span><span class="mc-stat"><span>♥</span> ${fmtV(t.likes)}</span></div>
       </div>
-    </a>`).join('');
+    </a>`;
+  }).join('');
   grid.querySelectorAll('.mc').forEach((el,i)=>{
     el.style.transitionDelay=`${(i%12)*0.04}s`;
     setTimeout(()=>el.classList.add('vis'),i*35+10);
@@ -676,6 +711,13 @@ searchInput.addEventListener('input',doSearch);
 searchInput.addEventListener('keydown',e=>{if(e.key==='Escape'){searchInput.value='';doSearch();}});
 clearBtn.addEventListener('click',()=>{searchInput.value='';doSearch();searchInput.focus();});
 
+// "/" to focus search
+document.addEventListener('keydown',e=>{
+  if(e.key==='/'&&document.activeElement!==searchInput){
+    e.preventDefault();searchInput.focus();
+  }
+});
+
 // SCROLL REVEAL
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
@@ -694,6 +736,34 @@ document.querySelectorAll('.card,.day-card').forEach(el=>{
 
 // INIT
 renderTop();renderGrid();renderWeek();
+
+// SCROLL PROGRESS BAR
+const progressEl=document.getElementById('progress');
+function updateProgress(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  progressEl.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+}
+
+// BACK TO TOP
+const toTopBtn=document.getElementById('toTop');
+toTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ACTIVE NAV
+const navLinks=[...document.querySelectorAll('nav a')];
+const sections=[...document.querySelectorAll('main section[id], section.hero')];
+function updateNav(){
+  const mid=window.scrollY+window.innerHeight/2;
+  let current='';
+  sections.forEach(s=>{if(s.offsetTop<=mid)current=s.id;});
+  navLinks.forEach(a=>{
+    const href=a.getAttribute('href').replace('#','');
+    a.classList.toggle('active',href===current);
+  });
+  toTopBtn.classList.toggle('vis',window.scrollY>400);
+}
+
+window.addEventListener('scroll',()=>{updateProgress();updateNav();},{passive:true});
+updateProgress();updateNav();
 })();
 </script>
 </body>
