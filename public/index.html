@@ -31,9 +31,9 @@
   /* ── GLOBAL SEARCH BAR ── */
   .global-search-bar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: rgba(10,10,11,0.96); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0.7rem 2rem;
+    background: rgba(10,10,11,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196,149,90,0.3);
+    padding: 0.75rem 2rem;
     display: flex; align-items: center; gap: 1rem;
   }
   .search-label {
@@ -71,6 +71,1069 @@
 
   /* ── SEARCH HIDDEN ── */
   .search-hidden { display: none !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-grain {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+  .cigarette-glow {
+    position: absolute; width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(196,149,90,0.06) 0%, transparent 60%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--warm); opacity: 0.6; margin-bottom: 2rem;
+    display: block; position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(5rem, 16vw, 11rem);
+    font-weight: 700; font-style: italic;
+    line-height: 0.9; letter-spacing: -0.02em;
+    color: var(--text); position: relative; margin-bottom: 1.5rem;
+  }
+  .hero-rule {
+    width: 60px; height: 1px; background: var(--warm);
+    margin: 0 auto 1.5rem; opacity: 0.5;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    color: var(--muted); font-style: italic;
+    max-width: 460px; margin: 0 auto 3rem; position: relative;
+    line-height: 1.9;
+  }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; position: relative; }
+  .hero-pill {
+    font-family: 'DM Mono', monospace; font-size: 0.52rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(196,149,90,0.2);
+    border-radius: 2px; color: var(--muted);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 52px;
+    background: rgba(10,10,11,0.94); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); z-index: 100;
+    padding: 0.8rem 2rem; display: flex; gap: 1.5rem;
+    justify-content: center; flex-wrap: wrap;
+  }
+  nav a {
+    font-family: 'DM Mono', monospace; font-size: 0.54rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.2s;
+  }
+  nav a:hover { color: var(--warm); }
+
+  /* ── LAYOUT ── */
+  main { max-width: 980px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 0.54rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--warm); margin-bottom: 1rem; display: block; opacity: 0.7;
+  }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; font-style: italic; line-height: 1.2; margin-bottom: 1rem; }
+  h2 strong { font-style: normal; font-weight: 700; }
+  h3 { font-size: 1.15rem; font-weight: 400; margin: 1.5rem 0 0.5rem; }
+  p { color: #9a9088; margin-bottom: 1rem; font-size: 1rem; }
+  .intro-text { max-width: 660px; margin-bottom: 2rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1rem; }
+  .tag {
+    font-family: 'DM Mono', monospace; font-size: 0.5rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.28rem 0.7rem;
+    background: rgba(196,149,90,0.08);
+    border: 1px solid rgba(196,149,90,0.2);
+    border-radius: 2px; color: var(--warm);
+  }
+
+  /* ── JANE INTRO ── */
+  .jane-intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--warm);
+    border-radius: 2px;
+    padding: 2.5rem 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .jane-intro::before {
+    content: '"';
+    position: absolute; top: -1.5rem; left: 2rem;
+    font-size: 6rem; color: var(--warm); opacity: 0.12;
+    font-style: italic; line-height: 1;
+  }
+  .jane-intro p { color: var(--muted); font-style: italic; font-size: 1.05rem; margin: 0; }
+  .jane-intro p + p { margin-top: 0.75rem; }
+  .jane-sig {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm); margin-top: 1.5rem; opacity: 0.7;
+  }
+
+  /* ── CARDS ── */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 2px; padding: 1.75rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .card:hover { border-color: var(--border2); background: var(--surface2); }
+  .card-num { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.2em; color: var(--warm); margin-bottom: 0.75rem; opacity: 0.7; }
+  .card h3 { margin-top: 0; font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+  .card p { font-size: 0.88rem; }
+  .card ul { margin: 0.5rem 0 0 1rem; }
+  .card ul li { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.2rem; }
+
+  /* ── STORY ── */
+  .story-block {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--rose); border-radius: 2px;
+    padding: 2.5rem; margin-top: 2rem;
+  }
+  .story-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  @media(max-width:600px){.story-cols{grid-template-columns:1fr;}}
+  .story-col h4 {
+    font-family: 'DM Mono', monospace; font-size: 0.54rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .story-col ul { list-style: none; padding: 0; }
+  .story-col ul li {
+    font-size: 0.9rem; color: #7a7268; padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .story-col ul li:last-child { border-bottom: none; }
+  .story-col ul li::before { content: '— '; color: var(--rose); }
+
+  /* ── TIMELINE ── */
+  .timeline { margin-top: 2rem; }
+  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; position: relative; }
+  .timeline-item::after { content:''; position:absolute; left:119px; top:2rem; bottom:-1.5rem; width:1px; background:var(--border); }
+  .timeline-item:last-child::after { display:none; }
+  .t-time { text-align: right; padding-top: 0.3rem; }
+  .t-label { font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--warm); display:block; opacity:0.7; }
+  .t-slot { font-size:0.78rem; color:var(--muted); font-style:italic; }
+  .t-content {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 2px; padding: 1.4rem 1.75rem; margin-bottom: 1.5rem; position: relative;
+  }
+  .t-content::before { content:''; position:absolute; left:-6px; top:1.4rem; width:10px; height:10px; border-radius:50%; background:var(--warm); border:2px solid var(--bg); }
+  .t-content h3 { margin-top:0; font-size:1.05rem; color:var(--text); margin-bottom:0.4rem; }
+  .t-content p { margin:0 0 0.5rem; font-size:0.9rem; }
+  .t-content ul { margin:0.4rem 0 0 1rem; }
+  .t-content ul li { font-size:0.85rem; color:var(--muted); margin-bottom:0.2rem; }
+  .warn { font-size:0.82rem; color:var(--rose); margin-top:0.5rem; font-style:italic; }
+  @media(max-width:640px){.timeline-item{grid-template-columns:1fr;}.timeline-item::after{display:none;}.t-time{text-align:left;}}
+
+  /* ── 7-DAY ── */
+  .week-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:2rem; }
+  .day-card { border:1px solid var(--border); border-radius:2px; overflow:hidden; transition:border-color 0.2s; }
+  .day-card:hover { border-color:var(--border2); }
+  .day-head { background: var(--surface2); padding:0.75rem 1.25rem; border-bottom:1px solid var(--border); }
+  .day-num { font-family:'DM Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:0.2rem; }
+  .day-theme { font-size:0.9rem; font-style:italic; color:var(--text); }
+  .day-body { background:var(--surface); padding:1.25rem; }
+  .sesh { display:flex; gap:0.75rem; margin-bottom:0.75rem; align-items:flex-start; }
+  .sesh-dot { width:5px; height:5px; border-radius:50%; margin-top:0.5rem; flex-shrink:0; }
+  .sesh-label { font-family:'DM Mono',monospace; font-size:0.49rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); display:block; }
+  .sesh-text { font-size:0.83rem; color:#7a7268; }
+
+  /* ── 30-DAY ── */
+  .weeks-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:2rem; }
+  .wk { background:var(--surface); border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+  .wk-head { padding:0.9rem 1.5rem; font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; }
+  .wh1{border-top:2px solid var(--warm); color:var(--warm);}
+  .wh2{border-top:2px solid var(--sage); color:var(--sage);}
+  .wh3{border-top:2px solid var(--rose); color:var(--rose);}
+  .wh4{border-top:2px solid var(--lavender); color:var(--lavender);}
+  .wk-body { padding:1.25rem 1.5rem; }
+  .wk-goal { font-family:'DM Mono',monospace; font-size:0.5rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+  .wk-row { margin-bottom:0.75rem; }
+  .wk-row .sesh-label { margin-bottom:0.2rem; }
+  .wk-row ul { margin:0 0 0 1rem; }
+  .wk-row ul li { font-size:0.82rem; color:var(--muted); }
+
+  /* ── PLAYLIST ── */
+  .plist { margin-top:2rem; border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+  .plist-cat { border-bottom:1px solid var(--border); }
+  .plist-cat:last-child{border-bottom:none;}
+  .plist-head { background:var(--surface2); padding:0.85rem 1.5rem; font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); }
+  .plist-item { padding:0.85rem 1.5rem; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; gap:1rem; font-size:0.9rem; transition:background 0.15s; }
+  .plist-item:last-child{border-bottom:none;}
+  .plist-item:hover{background:var(--surface2);}
+  .ptrack-num { font-family:'DM Mono',monospace; font-size:0.54rem; color:var(--muted); min-width:1.5rem; }
+
+  /* ── CREATORS ── */
+  .creator-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; margin-top:2rem; }
+  .creator-card { background:var(--surface); border:1px solid var(--border); border-radius:2px; padding:1.75rem; transition:border-color 0.2s; }
+  .creator-card:hover{border-color:var(--border2);}
+  .creator-type { font-family:'DM Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; }
+  .creator-name { font-size:1.05rem; color:var(--text); margin-bottom:0.4rem; }
+  .creator-desc { font-size:0.85rem; color:var(--muted); margin:0; }
+
+  /* ── RESOURCES ── */
+  .res-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:2rem; }
+  .res-card { background:var(--surface); border:1px solid var(--border); border-radius:2px; padding:1.75rem; }
+  .res-icon { font-size:1.3rem; margin-bottom:0.75rem; display:block; }
+  .res-card h3 { margin-top:0; font-size:0.95rem; color:var(--text); margin-bottom:0.5rem; }
+  .res-card p { font-size:0.84rem; margin:0 0 0.75rem; }
+  .res-card a { font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.08em; color:var(--warm); text-decoration:none; word-break:break-all; }
+  .res-card a:hover{text-decoration:underline;}
+  .warn-note { background:rgba(196,149,90,0.06); border:1px solid rgba(196,149,90,0.2); border-radius:2px; padding:0.65rem 0.9rem; font-size:0.8rem; color:#8a7050; margin-top:1rem; }
+
+  /* ── BIG IDEA ── */
+  .big-idea { background:var(--surface); border:1px solid var(--border); border-radius:2px; padding:3.5rem; margin-top:2rem; text-align:center; }
+  .big-idea h2 { color:var(--warm2); }
+  .big-idea>p { color:var(--muted); }
+  .pillars { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-top:2.5rem; }
+  .pillar { border:1px solid var(--border2); border-radius:2px; padding:1.25rem 1.5rem; min-width:150px; text-align:left; }
+  .pillar strong { display:block; color:var(--warm); font-size:0.56rem; font-family:'DM Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.35rem; font-weight:400; }
+  .pillar span { font-size:0.85rem; color:var(--muted); }
+
+  /* ── MUSIC SECTION ── */
+  .music-wrap { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin:0 -2rem; padding:5rem 2rem; }
+  .music-inner { max-width:980px; margin:0 auto; }
+
+  .stats-row { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .stat { }
+  .stat-n { font-size:2.2rem; font-weight:700; font-style:italic; color:var(--warm2); line-height:1; display:block; }
+  .stat-l { font-family:'DM Mono',monospace; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:0.2rem; }
+
+  /* music filters */
+  .mfilter-row { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.75rem; }
+  .mfbtn {
+    font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.12em; text-transform:uppercase;
+    padding:0.35rem 0.9rem; border:1px solid var(--border); border-radius:2px;
+    color:var(--muted); background:transparent; cursor:pointer; transition:all 0.2s;
+  }
+  .mfbtn:hover,.mfbtn.active { border-color:var(--warm); color:var(--warm); background:rgba(196,149,90,0.07); }
+
+  /* top tracks */
+  .top-list { border:1px solid var(--border); border-radius:2px; overflow:hidden; margin-bottom:2.5rem; }
+  .top-track {
+    display:flex; align-items:center; gap:1rem;
+    padding:0.85rem 1.25rem; border-bottom:1px solid var(--border);
+    cursor:pointer; transition:background 0.15s; text-decoration:none;
+  }
+  .top-track:last-child{border-bottom:none;}
+  .top-track:hover{background:var(--surface2);}
+  .t-rank { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--warm); min-width:1.5rem; opacity:0.4; }
+  .t-thumb { width:50px; height:50px; object-fit:cover; border-radius:2px; flex-shrink:0; filter:brightness(0.75); }
+  .t-info { flex:1; min-width:0; }
+  .t-title { font-size:0.9rem; color:var(--text); font-style:italic; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .t-views { font-family:'DM Mono',monospace; font-size:0.5rem; color:var(--muted); margin-top:0.2rem; }
+  .t-dur { font-family:'DM Mono',monospace; font-size:0.52rem; color:var(--muted); white-space:nowrap; }
+
+  /* music grid */
+  .mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:1rem; }
+  .mc {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:2px; overflow:hidden; cursor:pointer; text-decoration:none;
+    transition:border-color 0.2s, background 0.2s;
+  }
+  .mc:hover { border-color:var(--border2); background:var(--surface2); }
+  .mc-thumb { position:relative; aspect-ratio:16/9; overflow:hidden; }
+  .mc-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s; filter:brightness(0.7) saturate(0.8); }
+  .mc:hover .mc-thumb img { transform:scale(1.04); filter:brightness(0.85) saturate(0.9); }
+  .mc-thumb .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.2s; }
+  .mc:hover .play { opacity:1; }
+  .play svg { width:40px; height:40px; fill:white; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.7)); }
+  .dur-badge { position:absolute; bottom:0.4rem; right:0.4rem; background:rgba(0,0,0,0.8); color:#ddd; font-family:'DM Mono',monospace; font-size:0.52rem; padding:0.18rem 0.4rem; border-radius:2px; }
+  .mc-body { padding:0.9rem 1rem 1rem; }
+  .mc-title { font-size:0.88rem; color:var(--text); font-style:italic; margin-bottom:0.35rem; line-height:1.3; }
+  .mc-meta { display:flex; gap:0.9rem; }
+  .mc-stat { font-family:'DM Mono',monospace; font-size:0.49rem; letter-spacing:0.08em; color:var(--muted); }
+  .mc-stat span { color:#6b6560; }
+
+  /* no results */
+  .no-results { color:var(--muted); font-style:italic; grid-column:1/-1; padding:1rem 0; }
+
+  footer { text-align:center; padding:3rem 2rem; font-family:'DM Mono',monospace; font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); border-top:1px solid var(--border); }
+
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  mark, .search-hl {
+    background: rgba(196,149,90,0.18);
+    color: var(--warm2);
+    border-radius: 2px;
+    padding: 0 2px;
+    font-style: inherit;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ GLOBAL SEARCH ═══════════════════════ -->
+<div class="global-search-bar">
+  <span class="search-label">Jane ⌕</span>
+  <input class="global-input" type="text" id="globalSearch" placeholder="search everything — music, psychology, creators, routines…"/>
+  <span class="search-count" id="searchCount"></span>
+  <button class="clear-btn" id="clearBtn" title="clear">✕</button>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="hero">
+  <div class="hero-grain"></div>
+  <div class="cigarette-glow"></div>
+  <span class="hero-eyebrow">Psychology · ASMR · Ambient Sleep Music · Emotional Healing</span>
+  <h1>Jane</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">music to calm your soul, to fall asleep to, or to overthink — with psychology, ASMR & the quiet courage to feel things</p>
+  <div class="hero-pills">
+    <span class="hero-pill">i still miss her</span>
+    <span class="hero-pill">psychology</span>
+    <span class="hero-pill">ASMR</span>
+    <span class="hero-pill">CBT</span>
+    <span class="hero-pill">ambient sleep</span>
+    <span class="hero-pill">attraction</span>
+    <span class="hero-pill">30-day program</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav>
+  <a href="#jane">Jane</a>
+  <a href="#music">Music</a>
+  <a href="#types">Content</a>
+  <a href="#routine">Daily</a>
+  <a href="#week7">7-Day</a>
+  <a href="#week30">30-Day</a>
+  <a href="#playlist">Playlist</a>
+  <a href="#creators">Creators</a>
+  <a href="#resources">PDFs</a>
+  <a href="#idea">Philosophy</a>
+</nav>
+
+<main>
+
+<!-- ═══ WHO IS JANE ═══ -->
+<section id="jane">
+  <div class="reveal">
+    <span class="section-label">00 — Who Is Jane</span>
+    <h2>she knew things.</h2>
+    <div class="jane-intro" data-searchable>
+      <p>Jane is the voice behind everything here. She's the one who understood that the mind needs stillness before it can be strong. That you can't perform confidence — you have to grow it, slowly, in the dark, like something that only blooms at night.</p>
+      <p>She brought together psychology, the kind that actually works — the quiet science of how people feel, attach, pull away, come back. She knew about ASMR before there was a word for it. She understood that a whisper could do what a lecture never could. And she listened to music that felt like 3am and city lights and someone you can't stop thinking about.</p>
+      <p>This is her program. The music, the routines, the playlists, the research. All of it. She built it for people who feel too much and sleep too little.</p>
+      <div class="jane-sig">— Jane · Psychology · ASMR · Music for the Soul</div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>What Jane Teaches</h3>
+    <div class="card-grid">
+      <div class="card" data-searchable>
+        <div class="card-num">01</div>
+        <h3>Emotional Psychology</h3>
+        <p>Understanding emotions from the inside out. Jane's approach is grounded in Cognitive Behavioral Therapy — practical tools for anxiety, resilience, and self-worth.</p>
+        <div class="tag-row"><span class="tag">CBT</span><span class="tag">Anxiety</span><span class="tag">Resilience</span></div>
+      </div>
+      <div class="card" data-searchable>
+        <div class="card-num">02</div>
+        <h3>Whispered Confidence (ASMR)</h3>
+        <p>Whispered delivery activates Autonomous Sensory Meridian Response. Jane uses it the way some people use prayer — to slow the world down and find yourself in it.</p>
+        <div class="tag-row"><span class="tag">ASMR</span><span class="tag">Confidence</span><span class="tag">Calm</span></div>
+      </div>
+      <div class="card" data-searchable>
+        <div class="card-num">03</div>
+        <h3>Social Psychology of Attraction</h3>
+        <p>Confidence increases perceived attractiveness. Emotional safety builds trust. Mystery and novelty create curiosity. Jane teaches the science, not the tricks.</p>
+        <div class="tag-row"><span class="tag">Attraction</span><span class="tag">Trust</span><span class="tag">Presence</span></div>
+      </div>
+      <div class="card" data-searchable>
+        <div class="card-num">04</div>
+        <h3>Mindset & Positive Belief</h3>
+        <p>Positive expectations, self-belief, visualization. Not magic — psychology. The mind moves toward what it sees clearly.</p>
+        <div class="tag-row"><span class="tag">Mindset</span><span class="tag">Visualization</span><span class="tag">Self-belief</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MUSIC ═══ -->
+<div class="music-wrap" id="music">
+  <div class="music-inner">
+    <div class="reveal">
+      <span class="section-label" style="opacity:0.5;">01 — i still miss her</span>
+      <h2 style="color:var(--text);">music for <strong>the night</strong></h2>
+      <div class="intro-text"><p style="color:var(--muted);">Original ambient music to calm your soul, fall asleep to, or overthink. 50 tracks. All photos and music by the creator. This is what Jane plays when the world gets too loud.</p></div>
+    </div>
+
+    <div class="stats-row reveal">
+      <div class="stat"><span class="stat-n">50</span><span class="stat-l">Tracks</span></div>
+      <div class="stat"><span class="stat-n">2.1M</span><span class="stat-l">Total Views</span></div>
+      <div class="stat"><span class="stat-n">113K</span><span class="stat-l">Total Likes</span></div>
+      <div class="stat"><span class="stat-n">~40h</span><span class="stat-l">Total Music</span></div>
+    </div>
+
+    <!-- Top 5 -->
+    <div class="reveal" style="margin-bottom:2rem;">
+      <p style="font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Most Listened</p>
+      <div class="top-list">
+        <a class="top-track" href="https://www.youtube.com/watch?v=fJSOgUj0UeA" target="_blank" rel="noopener">
+          <span class="t-rank">01</span><img class="t-thumb" src="https://i.ytimg.com/vi/fJSOgUj0UeA/sddefault.jpg" alt=""/><div class="t-info"><div class="t-title">she is just a memory</div><div class="t-views">720,837 views · 45,268 likes</div></div><span class="t-dur">20:40</span>
+        </a>
+        <a class="top-track" href="https://www.youtube.com/watch?v=-7Yxhjjl-BA" target="_blank" rel="noopener">
+          <span class="t-rank">02</span><img class="t-thumb" src="https://i.ytimg.com/vi/-7Yxhjjl-BA/sddefault.jpg" alt=""/><div class="t-info"><div class="t-title">she was just a dream</div><div class="t-views">490,420 views · 25,896 likes</div></div><span class="t-dur">22:53</span>
+        </a>
+        <a class="top-track" href="https://www.youtube.com/watch?v=excd7fj7I8Y" target="_blank" rel="noopener">
+          <span class="t-rank">03</span><img class="t-thumb" src="https://i.ytimg.com/vi/excd7fj7I8Y/sddefault.jpg" alt=""/><div class="t-info"><div class="t-title">maybe in another lifetime</div><div class="t-views">455,007 views · 18,960 likes</div></div><span class="t-dur">18:16</span>
+        </a>
+        <a class="top-track" href="https://www.youtube.com/watch?v=EYXrmQhAiX8" target="_blank" rel="noopener">
+          <span class="t-rank">04</span><img class="t-thumb" src="https://i.ytimg.com/vi/EYXrmQhAiX8/maxresdefault.jpg" alt=""/><div class="t-info"><div class="t-title">ill always love her</div><div class="t-views">100,481 views · 4,195 likes</div></div><span class="t-dur">35:13</span>
+        </a>
+        <a class="top-track" href="https://www.youtube.com/watch?v=NB_Boy4J4a4" target="_blank" rel="noopener">
+          <span class="t-rank">05</span><img class="t-thumb" src="https://i.ytimg.com/vi/NB_Boy4J4a4/sddefault.jpg" alt=""/><div class="t-info"><div class="t-title">i still miss her</div><div class="t-views">57,771 views · 1,618 likes</div></div><span class="t-dur">18:29</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="reveal">
+      <div class="mfilter-row" id="filterRow">
+        <button class="mfbtn active" data-filter="all">All 50</button>
+        <button class="mfbtn" data-filter="short">Under 30 min</button>
+        <button class="mfbtn" data-filter="long">1 hour+</button>
+        <button class="mfbtn" data-filter="memory">Memory</button>
+        <button class="mfbtn" data-filter="sleep">Sleep</button>
+        <button class="mfbtn" data-filter="dream">Dream</button>
+        <button class="mfbtn" data-filter="safe">Safe / Rest</button>
+      </div>
+    </div>
+    <div class="mgrid reveal" id="musicGrid"></div>
+  </div>
+</div>
+
+<!-- ═══ CONTENT TYPES ═══ -->
+<section id="types">
+  <div class="reveal">
+    <span class="section-label">02 — Content Types</span>
+    <h2>four ways Jane <strong>reaches you</strong></h2>
+    <div class="intro-text"><p>The four types of content Jane curates — each one working on a different part of the mind and nervous system.</p></div>
+  </div>
+  <div class="card-grid reveal">
+    <div class="card" data-searchable>
+      <div class="card-num">Type 01</div>
+      <h3>Whispered Confidence & ASMR</h3>
+      <p>Whispered delivery activates Autonomous Sensory Meridian Response. Jane's confidence affirmations echo law-of-attraction philosophy while calming the nervous system.</p>
+      <div class="tag-row"><span class="tag">Reduces Anxiety</span><span class="tag">Self-Confidence</span><span class="tag">Emotional Regulation</span></div>
+    </div>
+    <div class="card" data-searchable>
+      <div class="card-num">Type 02</div>
+      <h3>Emotional Psychology & Mental Strength</h3>
+      <p>The scientific side of emotional development. Jane explains understanding emotions, coping strategies, and emotional resilience — grounded in Cognitive Behavioral Therapy.</p>
+      <div class="tag-row"><span class="tag">CBT</span><span class="tag">Resilience</span><span class="tag">Mental Health</span></div>
+    </div>
+    <div class="card" data-searchable>
+      <div class="card-num">Type 03</div>
+      <h3>Comfort & Personal Attention (ASMR)</h3>
+      <p>Emma from WhispersRed produces this style. ASMR gave her confidence, self-worth, and courage to be authentic. Jane passes that on — comfort, kindness, emotional support.</p>
+      <div class="tag-row"><span class="tag">Comfort</span><span class="tag">Self-Worth</span><span class="tag">Authenticity</span></div>
+    </div>
+    <div class="card" data-searchable>
+      <div class="card-num">Type 04</div>
+      <h3>Social Psychology of Attraction</h3>
+      <p>From The Art of Seduction to social psychology research. Jane focuses on confidence increasing attractiveness, emotional safety building trust, and mystery creating curiosity.</p>
+      <div class="tag-row"><span class="tag">Attraction</span><span class="tag">Confidence</span><span class="tag">Trust</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EMMA'S STORY ═══ -->
+<section id="emma">
+  <div class="reveal">
+    <span class="section-label">03 — WhispersRed</span>
+    <h2>Emma's story is <strong>Jane's story</strong></h2>
+    <p class="intro-text">Emma Smith never expected to become a creator. Her journey — from tablet recordings to UK ASMR pioneer — is the same journey Jane takes every listener through.</p>
+  </div>
+  <div class="story-block reveal" data-searchable>
+    <h3 style="color:var(--text); margin-top:0;">From a Tablet in a Bedroom to the UK ASMR Community</h3>
+    <div class="story-cols">
+      <div class="story-col">
+        <h4>Key Moments</h4>
+        <ul>
+          <li>Attended one of the first ASMR meetups in London (2013)</li>
+          <li>Event organised by Ilse Blansert (TheWaterwhispers)</li>
+          <li>Started her channel to participate in the community</li>
+          <li>Early videos were simple recordings on a tablet</li>
+        </ul>
+      </div>
+      <div class="story-col">
+        <h4>The Transformation</h4>
+        <ul>
+          <li>Her confidence grew</li>
+          <li>Her skills improved</li>
+          <li>She became a respected ASMR creator</li>
+        </ul>
+        <h4 style="margin-top:1.25rem;">Her Message</h4>
+        <ul>
+          <li>ASMR gave her confidence, self-worth, and courage to be authentic</li>
+          <li>She hopes to return that — comfort, kindness, and relaxation to others</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DAILY ROUTINE ═══ -->
+<section id="routine">
+  <div class="reveal">
+    <span class="section-label">04 — Daily Structure</span>
+    <h2>a day with <strong>Jane</strong></h2>
+    <div class="intro-text"><p>Five touchpoints. Morning psychology, midday social awareness, afternoon mindset, evening ASMR, night music. Every day ends with <em>i still miss her</em>.</p></div>
+  </div>
+  <div class="timeline reveal">
+    <div class="timeline-item" data-searchable>
+      <div class="t-time"><span class="t-label">Morning</span><span class="t-slot">7–8 AM · 10–15 min</span></div>
+      <div class="t-content">
+        <h3>Mindset & Emotional Awareness</h3>
+        <p>Jane starts with psychology. Understanding emotions before the noise of the day begins.</p>
+        <ul><li>Managing anxiety</li><li>Emotional regulation</li><li>Building self-confidence</li><li>Understanding emotions</li></ul>
+        <div class="tag-row"><span class="tag">Stronger emotional control</span><span class="tag">CBT tools</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-searchable>
+      <div class="t-time"><span class="t-label">Midday</span><span class="t-slot">12 PM · 15–20 min</span></div>
+      <div class="t-content">
+        <h3>Social Psychology & Attraction</h3>
+        <p>Concepts from The Game, Erik von Markovik, and The Art of Seduction — through Jane's healthy lens:</p>
+        <ul><li>Confidence</li><li>Curiosity</li><li>Storytelling</li><li>Social awareness</li></ul>
+        <p class="warn">Jane avoids manipulation. No negging. No games.</p>
+        <div class="tag-row"><span class="tag">Authentic Confidence</span><span class="tag">Social Awareness</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-searchable>
+      <div class="t-time"><span class="t-label">Afternoon</span><span class="t-slot">4 PM · 5–10 min</span></div>
+      <div class="t-content">
+        <h3>Mindset & Self-Belief</h3>
+        <p>The Secret — only the useful parts. Positive expectations, visualization, self-belief.</p>
+        <ul><li>Positive expectations</li><li>Self-belief</li><li>Visualization for confidence</li></ul>
+        <div class="tag-row"><span class="tag">Optimism</span><span class="tag">Motivation</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-searchable>
+      <div class="t-time"><span class="t-label">Evening</span><span class="t-slot">9 PM · 20–30 min</span></div>
+      <div class="t-content">
+        <h3>ASMR Relaxation — WhispersRed</h3>
+        <p>Emma Smith. Whispering, personal attention, relaxing sounds. Autonomous Sensory Meridian Response — the body finally letting go.</p>
+        <div class="tag-row"><span class="tag">Deep Relaxation</span><span class="tag">Stress Reduction</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-searchable>
+      <div class="t-time"><span class="t-label">Night</span><span class="t-slot">10–11 PM</span></div>
+      <div class="t-content">
+        <h3>Sleep — i still miss her</h3>
+        <p>Jane's music. Put something on and let the melancholic ambient carry you. Recommended:</p>
+        <ul>
+          <li>"you need some rest.." — 1:02:04</li>
+          <li>"close your eyes, im here.." — 1:00:31</li>
+          <li>"its late, go to sleep…" — 1:00:00</li>
+          <li>"you are safe here" — 1:00:35</li>
+        </ul>
+        <div class="tag-row"><span class="tag">Better Sleep</span><span class="tag">Emotional Comfort</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7-DAY ═══ -->
+<section id="week7">
+  <div class="reveal">
+    <span class="section-label">05 — 7-Day Programme</span>
+    <h2>one week with <strong>Jane</strong></h2>
+    <div class="intro-text"><p>Each day: morning psychology with Jane, afternoon social awareness, night ASMR followed by <em>i still miss her</em>.</p></div>
+  </div>
+  <div class="week-grid reveal">
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 01</span><span class="day-theme">Emotional Awareness</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Understanding Your Emotions</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Authenticity vs performance · healthy confidence</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">WhispersRed Soft Spoken → "she is just a memory"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 02</span><span class="day-theme">Anxiety & Confidence</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">How to Manage Anxiety</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Body language · first impressions · social proof</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Sleepy Affirmations → "she was just a dream"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 03</span><span class="day-theme">Communication</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Communicating Your Feelings</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Storytelling & curiosity (Robert Greene)</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Personal Attention → "maybe in another lifetime"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 04</span><span class="day-theme">Emotional Regulation</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Calm an Overthinking Mind</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Emotional safety · humor · shared values</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Tea & Comfort → "nothing feels the same anymore"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 05</span><span class="day-theme">Self-Worth</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Building Self-Confidence</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Positive expectations · visualization (Rhonda Byrne)</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Positive Affirmations → "i wish it never ended"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 06</span><span class="day-theme">Connection</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Healthy Relationship Habits</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Empathy · listening · emotional attraction</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Deep Sleep → "she felt like home"</span></div></div>
+      </div>
+    </div>
+    <div class="day-card" data-searchable>
+      <div class="day-head"><span class="day-num">Day 07</span><span class="day-theme">Reflection</span></div>
+      <div class="day-body">
+        <div class="sesh"><div class="sesh-dot" style="background:var(--warm)"></div><div><span class="sesh-label">Morning — Jane</span><span class="sesh-text">Be Kinder to Yourself</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--sage)"></div><div><span class="sesh-label">Afternoon</span><span class="sesh-text">Reflect on emotional growth this week</span></div></div>
+        <div class="sesh"><div class="sesh-dot" style="background:var(--lavender)"></div><div><span class="sesh-label">Night</span><span class="sesh-text">Ultimate Comfort → "you are safe here"</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 30-DAY ═══ -->
+<section id="week30">
+  <div class="reveal">
+    <span class="section-label">06 — 30-Day Programme</span>
+    <h2>thirty days with <strong>Jane</strong></h2>
+    <div class="intro-text"><p>Three sessions daily across four focused weeks. End every night with <em>i still miss her</em>.</p></div>
+  </div>
+  <div class="weeks-grid reveal">
+    <div class="wk" data-searchable>
+      <div class="wk-head wh1">Week 1 — Emotional Awareness & Calm</div>
+      <div class="wk-body">
+        <div class="wk-goal">Goal: understand emotions · calm the nervous system</div>
+        <div class="wk-row"><span class="sesh-label">Morning — Jane (Psychology)</span><ul><li>Understanding emotions</li><li>Anxiety management</li><li>Emotional regulation</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Afternoon — Attraction Psychology</span><ul><li>Confidence basics</li><li>Body language</li><li>Curiosity in conversation</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Night — ASMR + i still miss her</span><ul><li>WhispersRed relaxation</li><li>"she is just a memory" to drift off</li></ul></div>
+      </div>
+    </div>
+    <div class="wk" data-searchable>
+      <div class="wk-head wh2">Week 2 — Social Confidence</div>
+      <div class="wk-body">
+        <div class="wk-goal">Goal: develop natural conversation skills</div>
+        <div class="wk-row"><span class="sesh-label">Morning — Jane (Psychology)</span><ul><li>Self-confidence</li><li>Self-criticism</li><li>Handling rejection</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Afternoon — Art of Seduction / The Game</span><ul><li>Storytelling</li><li>Humor</li><li>Emotional awareness</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Night — ASMR + i still miss her</span><ul><li>Whispered personal attention</li><li>"maybe in another lifetime" to sleep</li></ul></div>
+      </div>
+    </div>
+    <div class="wk" data-searchable>
+      <div class="wk-head wh3">Week 3 — Relationships & EQ</div>
+      <div class="wk-body">
+        <div class="wk-goal">Goal: build empathy and deeper connections</div>
+        <div class="wk-row"><span class="sesh-label">Morning — Jane (Psychology)</span><ul><li>Boundaries</li><li>Communication</li><li>Emotional resilience</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Afternoon — Relationship Psychology</span><ul><li>Empathy</li><li>Listening skills</li><li>Emotional safety</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Night — ASMR + i still miss her</span><ul><li>Tea & bedtime ASMR</li><li>"she felt like home" to sleep</li></ul></div>
+      </div>
+    </div>
+    <div class="wk" data-searchable>
+      <div class="wk-head wh4">Week 4 — Authentic Confidence</div>
+      <div class="wk-body">
+        <div class="wk-goal">Goal: integrate mindset, psychology, and relaxation</div>
+        <div class="wk-row"><span class="sesh-label">Morning — Jane (Psychology)</span><ul><li>Meaning and purpose</li><li>Mental resilience</li><li>Long-term wellbeing</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Afternoon — The Secret</span><ul><li>Positive expectations</li><li>Visualization for confidence</li></ul></div>
+        <div class="wk-row"><span class="sesh-label">Night — ASMR + i still miss her</span><ul><li>Deep sleep ASMR</li><li>"you are safe here" to sleep</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLAYLIST ═══ -->
+<section id="playlist">
+  <div class="reveal">
+    <span class="section-label">07 — Full Playlist</span>
+    <h2>everything Jane <strong>listens to</strong></h2>
+    <p class="intro-text">All three pillars — psychology content, ASMR, and the full <em>i still miss her</em> ambient music collection.</p>
+  </div>
+  <div class="plist reveal" data-searchable>
+    <div class="plist-cat">
+      <div class="plist-head">Psychology & Emotional Intelligence — Jane's Teaching</div>
+      <div class="plist-item"><span class="ptrack-num">01</span>Jane — Understanding Your Emotions</div>
+      <div class="plist-item"><span class="ptrack-num">02</span>Jane — How to Deal With Anxiety</div>
+      <div class="plist-item"><span class="ptrack-num">03</span>Jane — How to Build Self-Confidence</div>
+      <div class="plist-item"><span class="ptrack-num">04</span>Jane — Stop Overthinking</div>
+      <div class="plist-item"><span class="ptrack-num">05</span>Jane — Healthy Relationship Advice</div>
+    </div>
+    <div class="plist-cat">
+      <div class="plist-head">Social Confidence & Attraction — Jane on Erik von Markovik & Robert Greene</div>
+      <div class="plist-item"><span class="ptrack-num">06</span>Jane — Confidence in Conversation</div>
+      <div class="plist-item"><span class="ptrack-num">07</span>Jane — Storytelling Skills</div>
+      <div class="plist-item"><span class="ptrack-num">08</span>Jane — Curiosity in Communication</div>
+      <div class="plist-item"><span class="ptrack-num">09</span>Jane — Emotional Intelligence in Relationships</div>
+    </div>
+    <div class="plist-cat">
+      <div class="plist-head">ASMR Relaxation — Jane's Recommended Channels</div>
+      <div class="plist-item"><span class="ptrack-num">10</span>WhispersRed (Emma) — Soft Spoken Relaxation</div>
+      <div class="plist-item"><span class="ptrack-num">11</span>WhispersRed — Positive Affirmations ASMR</div>
+      <div class="plist-item"><span class="ptrack-num">12</span>WhispersRed — Personal Attention Roleplay</div>
+      <div class="plist-item"><span class="ptrack-num">13</span>WhispersRed — Deep Sleep Whispered Relaxation</div>
+      <div class="plist-item"><span class="ptrack-num">14</span>TheWaterwhispers (Ilse) — Gentle Relaxation</div>
+      <div class="plist-item"><span class="ptrack-num">15</span>FredsVoice ASMR — Gentle British Whisper</div>
+      <div class="plist-item"><span class="ptrack-num">16</span>Scottish Murmurs — Softly Spoken ASMR</div>
+      <div class="plist-item"><span class="ptrack-num">17</span>ASMRMagic — Deep Sleep Triggers</div>
+    </div>
+    <div class="plist-cat">
+      <div class="plist-head">i still miss her — Jane's Sleep Music (50 tracks, see Music section above)</div>
+      <div class="plist-item"><span class="ptrack-num">★</span>she is just a memory · she was just a dream · maybe in another lifetime · ill always love her</div>
+      <div class="plist-item"><span class="ptrack-num">★</span>you need some rest · close your eyes im here · you are safe here · its late go to sleep</div>
+      <div class="plist-item"><span class="ptrack-num">★</span>she felt like home · nothing feels the same · i miss her more at night · i wish it never ended</div>
+      <div class="plist-item"><span class="ptrack-num">+</span>and 38 more — browse the full grid in the Music section ↑</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CREATORS ═══ -->
+<section id="creators">
+  <div class="reveal">
+    <span class="section-label">08 — Creators</span>
+    <h2>the people <strong>Jane trusts</strong></h2>
+  </div>
+  <div class="creator-grid reveal">
+    <div class="creator-card" style="border-top:2px solid var(--warm);" data-searchable>
+      <div class="creator-type">Ambient Music</div>
+      <div class="creator-name">i still miss her</div>
+      <p class="creator-desc">50+ original ambient tracks for sleep and overthinking. Melancholic melodies — city lights at night, thinking of someone you can't forget.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">Jane's Psychology — Primary Voice</div>
+      <div class="creator-name">Jane (Psychology)</div>
+      <p class="creator-desc">CBT-grounded content on anxiety, confidence, emotions, and relationships. Jane's scientific foundation — how people actually feel and why.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR — Jane's Comfort</div>
+      <div class="creator-name">WhispersRed (Emma Smith)</div>
+      <p class="creator-desc">UK ASMR pioneer since 2013. Jane's go-to for personal attention and deep relaxation. Her story is the story of finding courage through kindness.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR</div>
+      <div class="creator-name">TheWaterwhispers (Ilse Blansert)</div>
+      <p class="creator-desc">Organised one of the first ASMR meetups in London. Gentle, therapeutic whispered content.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR</div>
+      <div class="creator-name">FredsVoice ASMR</div>
+      <p class="creator-desc">British whisper ASMR for calm, sleep, and gentle audio relaxation.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR</div>
+      <div class="creator-name">Scottish Murmurs</div>
+      <p class="creator-desc">Softly spoken Scottish ASMR — uniquely calming with personal attention triggers.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR</div>
+      <div class="creator-name">Be Calm With Becca</div>
+      <p class="creator-desc">ASMR combined with emotional comfort and anxiety relief.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">ASMR</div>
+      <div class="creator-name">Creative Calm ASMR</div>
+      <p class="creator-desc">Anxiety relief and creative relaxation techniques.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">Philosophy & Psychology</div>
+      <div class="creator-name">The School of Life</div>
+      <p class="creator-desc">London-based channel on emotional intelligence, relationships, and self-understanding.</p>
+    </div>
+    <div class="creator-card" data-searchable>
+      <div class="creator-type">Productivity & Wellbeing</div>
+      <div class="creator-name">Ali Abdaal</div>
+      <p class="creator-desc">UK doctor exploring psychology of productivity, happiness, and evidence-based wellbeing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESOURCES ═══ -->
+<section id="resources">
+  <div class="reveal">
+    <span class="section-label">09 — Academic Resources</span>
+    <h2>Jane's <strong>free reading list</strong></h2>
+    <p class="intro-text">Open-access PDFs and research papers — the science behind what Jane teaches. Memory, social psychology, CBT, research methods.</p>
+  </div>
+  <div class="res-grid reveal">
+    <div class="res-card" data-searchable><span class="res-icon">🧠</span><h3>Memory & Cognition — PubMed Central</h3><p>Examining the role of memory in social cognition. Full PDF from PMC.</p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3709095/" target="_blank">ncbi.nlm.nih.gov/pmc/articles/PMC3709095</a></div>
+    <div class="res-card" data-searchable><span class="res-icon">📘</span><h3>MIT OpenCourseWare — Intro Psychology</h3><p>Free full course PDF covering memory, learning, and social psych. Maps to PSY 301.</p><a href="https://ocw.mit.edu/courses/9-00sc-introduction-to-psychology-fall-2011/" target="_blank">ocw.mit.edu — Introduction to Psychology</a></div>
+    <div class="res-card" data-searchable><span class="res-icon">📚</span><h3>Essentials of Understanding Psychology</h3><p>Archived public PDF — introductory psychology textbook.</p><a href="https://archive.ncarb.org/results/publication/Documents/essentials_of_understanding_psychology_pdf.pdf" target="_blank">archive.ncarb.org — Essentials PDF</a></div>
+    <div class="res-card" data-searchable><span class="res-icon">🔎</span><h3>PubPsych — Open Retrieval</h3><p>Aggregates psychology literature and links to free PDFs.</p><a href="https://pubpsych.zpid.de/" target="_blank">pubpsych.zpid.de</a></div>
+    <div class="res-card" data-searchable><span class="res-icon">📖</span><h3>Open-Access Psychology Journal</h3><p>Full PDFs from openly accessible psychology journal. Volumes 11 & 12.<div class="warn-note">⚠️ Some OpenPsych content is contested — cross-check with mainstream sources.</div></p></div>
+    <div class="res-card" data-searchable><span class="res-icon">📄</span><h3>PsyArXiv & arXiv Preprints</h3><p>Free preprint PDFs in psychology, cognition, memory, learning, and social behavior.</p></div>
+  </div>
+</section>
+
+<!-- ═══ BIG IDEA ═══ -->
+<section id="idea">
+  <div class="reveal">
+    <span class="section-label">10 — The Philosophy</span>
+    <h2>what Jane <strong>believed</strong></h2>
+    <p class="intro-text">Healthy attraction and confidence don't come from tricks. They come from the inside out — when your nervous system is calm, your mind is clear, your self-belief is real, and the music playing feels like it was made just for you.</p>
+  </div>
+  <div class="big-idea reveal" data-searchable>
+    <h2>calm mind. open heart. authentic confidence.</h2>
+    <p style="margin-top:0.5rem;">Healthy attraction and confidence come from combining all four — not manipulation.</p>
+    <div class="pillars">
+      <div class="pillar"><strong>Emotional Awareness</strong><span>Psychology · CBT · understanding feelings · Jane's core teaching</span></div>
+      <div class="pillar"><strong>Calm Nervous System</strong><span>ASMR · ambient music · emotional safety · better sleep</span></div>
+      <div class="pillar"><strong>Positive Mindset</strong><span>Law-of-attraction thinking · visualization · self-belief</span></div>
+      <div class="pillar"><strong>Social Confidence</strong><span>Seduction psychology · curiosity · storytelling · authentic presence</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Jane · i still miss her · Psychology · ASMR · WhispersRed · 30-Day Program</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+// ── ALL 50 TRACKS ──
+const tracks = [
+  {title:"she is just a memory",url:"https://www.youtube.com/watch?v=fJSOgUj0UeA",thumb:"https://i.ytimg.com/vi/fJSOgUj0UeA/sddefault.jpg",views:720837,likes:45268,dur:"20:40",secs:1240},
+  {title:"she was just a dream",url:"https://www.youtube.com/watch?v=-7Yxhjjl-BA",thumb:"https://i.ytimg.com/vi/-7Yxhjjl-BA/sddefault.jpg",views:490420,likes:25896,dur:"22:53",secs:1373},
+  {title:"maybe in another lifetime",url:"https://www.youtube.com/watch?v=excd7fj7I8Y",thumb:"https://i.ytimg.com/vi/excd7fj7I8Y/sddefault.jpg",views:455007,likes:18960,dur:"18:16",secs:1096},
+  {title:"ill always love her",url:"https://www.youtube.com/watch?v=EYXrmQhAiX8",thumb:"https://i.ytimg.com/vi/EYXrmQhAiX8/maxresdefault.jpg",views:100481,likes:4195,dur:"35:13",secs:2113},
+  {title:"i still miss her",url:"https://www.youtube.com/watch?v=NB_Boy4J4a4",thumb:"https://i.ytimg.com/vi/NB_Boy4J4a4/sddefault.jpg",views:57771,likes:1618,dur:"18:29",secs:1109},
+  {title:"i miss her more at night",url:"https://www.youtube.com/watch?v=80N_fsE33GI",thumb:"https://i.ytimg.com/vi/80N_fsE33GI/sddefault.jpg",views:54429,likes:1953,dur:"29:01",secs:1741},
+  {title:"she felt like home",url:"https://www.youtube.com/watch?v=0SKojPoBbQk",thumb:"https://i.ytimg.com/vi/0SKojPoBbQk/sddefault.jpg",views:44974,likes:1525,dur:"33:37",secs:2017},
+  {title:"maybe in another life",url:"https://www.youtube.com/watch?v=OuGMgXssprY",thumb:"https://i.ytimg.com/vi/OuGMgXssprY/maxresdefault.jpg",views:42582,likes:1259,dur:"20:56",secs:1256},
+  {title:"i wish it never ended",url:"https://www.youtube.com/watch?v=JYo-r7TShS4",thumb:"https://i.ytimg.com/vi/JYo-r7TShS4/maxresdefault.jpg",views:41488,likes:1413,dur:"20:46",secs:1246},
+  {title:"nothing feels the same anymore",url:"https://www.youtube.com/watch?v=wrmCQWOMwQQ",thumb:"https://i.ytimg.com/vi/wrmCQWOMwQQ/sddefault.jpg",views:28415,likes:781,dur:"21:06",secs:1266},
+  {title:"i miss her touch",url:"https://www.youtube.com/watch?v=Mt5n_xzlh6M",thumb:"https://i.ytimg.com/vi/Mt5n_xzlh6M/sddefault.jpg",views:27063,likes:915,dur:"1:01:08",secs:3668},
+  {title:"just forget about it and relax....",url:"https://www.youtube.com/watch?v=GEbNKfoC_oI",thumb:"https://i.ytimg.com/vi/GEbNKfoC_oI/maxresdefault.jpg",views:24043,likes:825,dur:"1:12:50",secs:4370},
+  {title:"i miss what we had",url:"https://www.youtube.com/watch?v=phmu7z_sl74",thumb:"https://i.ytimg.com/vi/phmu7z_sl74/sddefault.jpg",views:23372,likes:687,dur:"31:08",secs:1868},
+  {title:"maybe in another life (she was never real)",url:"https://www.youtube.com/watch?v=SuJak8HRzEs",thumb:"https://i.ytimg.com/vi/SuJak8HRzEs/sddefault.jpg",views:22973,likes:695,dur:"18:00",secs:1080},
+  {title:"it still hurts",url:"https://www.youtube.com/watch?v=dwzlsPScrQY",thumb:"https://i.ytimg.com/vi/dwzlsPScrQY/maxresdefault.jpg",views:21849,likes:863,dur:"44:40",secs:2680},
+  {title:"i still miss her smile",url:"https://www.youtube.com/watch?v=wFCuO1wS8Ms",thumb:"https://i.ytimg.com/vi/wFCuO1wS8Ms/sddefault.jpg",views:17254,likes:435,dur:"20:43",secs:1243},
+  {title:"she is just a memory now",url:"https://www.youtube.com/watch?v=dWVybnWfIXI",thumb:"https://i.ytimg.com/vi/dWVybnWfIXI/sddefault.jpg",views:16275,likes:616,dur:"28:25",secs:1705},
+  {title:"i miss her laugh",url:"https://www.youtube.com/watch?v=zIfUUzKgRaM",thumb:"https://i.ytimg.com/vi/zIfUUzKgRaM/sddefault.jpg",views:16200,likes:621,dur:"22:36",secs:1356},
+  {title:"maybe in another world",url:"https://www.youtube.com/watch?v=OdW6cjrmAEk",thumb:"https://i.ytimg.com/vi/OdW6cjrmAEk/sddefault.jpg",views:15346,likes:545,dur:"36:01",secs:2161},
+  {title:"she was never real",url:"https://www.youtube.com/watch?v=3QUCYBKhdW4",thumb:"https://i.ytimg.com/vi/3QUCYBKhdW4/sddefault.jpg",views:14873,likes:481,dur:"20:12",secs:1212},
+  {title:"ill never forget her",url:"https://www.youtube.com/watch?v=rsLuY15JdNw",thumb:"https://i.ytimg.com/vi/rsLuY15JdNw/sddefault.jpg",views:13406,likes:481,dur:"20:17",secs:1217},
+  {title:"i cant stop thinking about her",url:"https://www.youtube.com/watch?v=jJiaqhvr5hI",thumb:"https://i.ytimg.com/vi/jJiaqhvr5hI/maxresdefault.jpg",views:13101,likes:624,dur:"22:07",secs:1327},
+  {title:"shes still in my head",url:"https://www.youtube.com/watch?v=WuZpqMVh2n0",thumb:"https://i.ytimg.com/vi/WuZpqMVh2n0/sddefault.jpg",views:12625,likes:409,dur:"21:04",secs:1264},
+  {title:"ill never forget her (long)",url:"https://www.youtube.com/watch?v=Ih5LbBJak2c",thumb:"https://i.ytimg.com/vi/Ih5LbBJak2c/maxresdefault.jpg",views:11843,likes:490,dur:"58:46",secs:3526},
+  {title:"she was lovely",url:"https://www.youtube.com/watch?v=tT8g3ot5uwI",thumb:"https://i.ytimg.com/vi/tT8g3ot5uwI/sddefault.jpg",views:11097,likes:476,dur:"20:35",secs:1235},
+  {title:"i still love her",url:"https://www.youtube.com/watch?v=nDbYC6jOjOc",thumb:"https://i.ytimg.com/vi/nDbYC6jOjOc/sddefault.jpg",views:10499,likes:504,dur:"1:02:52",secs:3772},
+  {title:"i hope shes fine",url:"https://www.youtube.com/watch?v=z2pugSaq7So",thumb:"https://i.ytimg.com/vi/z2pugSaq7So/sddefault.jpg",views:10267,likes:513,dur:"24:34",secs:1474},
+  {title:"she felt like everything",url:"https://www.youtube.com/watch?v=R-5rsIeluPE",thumb:"https://i.ytimg.com/vi/R-5rsIeluPE/sddefault.jpg",views:10149,likes:416,dur:"33:04",secs:1984},
+  {title:"i wish i still had her",url:"https://www.youtube.com/watch?v=gsNE_C4nDYA",thumb:"https://i.ytimg.com/vi/gsNE_C4nDYA/sddefault.jpg",views:9515,likes:403,dur:"31:08",secs:1868},
+  {title:"she's gone.",url:"https://www.youtube.com/watch?v=Q58gc8LxlMs",thumb:"https://i.ytimg.com/vi/Q58gc8LxlMs/sddefault.jpg",views:8309,likes:386,dur:"40:01",secs:2401},
+  {title:"she looked just like a dream",url:"https://www.youtube.com/watch?v=Mm_5vV5JWoA",thumb:"https://i.ytimg.com/vi/Mm_5vV5JWoA/maxresdefault.jpg",views:7835,likes:310,dur:"38:57",secs:2337},
+  {title:"you need some rest..",url:"https://www.youtube.com/watch?v=fh99-UM7h9o",thumb:"https://i.ytimg.com/vi/fh99-UM7h9o/sddefault.jpg",views:7488,likes:303,dur:"1:02:04",secs:3724},
+  {title:"you are safe here..",url:"https://www.youtube.com/watch?v=S1uOJe_HHhE",thumb:"https://i.ytimg.com/vi/S1uOJe_HHhE/sddefault.jpg",views:7132,likes:309,dur:"1:00:28",secs:3628},
+  {title:"its late, go to sleep…",url:"https://www.youtube.com/watch?v=v0bATLAjEkI",thumb:"https://i.ytimg.com/vi/v0bATLAjEkI/sddefault.jpg",views:6882,likes:304,dur:"1:00:00",secs:3600},
+  {title:"she was my everything",url:"https://www.youtube.com/watch?v=z0FGodThagM",thumb:"https://i.ytimg.com/vi/z0FGodThagM/sddefault.jpg",views:6617,likes:281,dur:"42:21",secs:2541},
+  {title:"she was just a dream (v2)",url:"https://www.youtube.com/watch?v=Ds2bnVJoJJM",thumb:"https://i.ytimg.com/vi/Ds2bnVJoJJM/sddefault.jpg",views:6573,likes:241,dur:"1:02:25",secs:3745},
+  {title:"you need to sleep.",url:"https://www.youtube.com/watch?v=IvOkALH50tE",thumb:"https://i.ytimg.com/vi/IvOkALH50tE/sddefault.jpg",views:6043,likes:265,dur:"1:00:32",secs:3632},
+  {title:"her memories wont fade",url:"https://www.youtube.com/watch?v=OmlSHACMfpM",thumb:"https://i.ytimg.com/vi/OmlSHACMfpM/sddefault.jpg",views:5529,likes:208,dur:"20:59",secs:1259},
+  {title:"she was only a dream",url:"https://www.youtube.com/watch?v=fYqqVqQ5V14",thumb:"https://i.ytimg.com/vi/fYqqVqQ5V14/sddefault.jpg",views:5432,likes:247,dur:"1:02:47",secs:3767},
+  {title:"i still want her",url:"https://www.youtube.com/watch?v=oc36Pwxv3uw",thumb:"https://i.ytimg.com/vi/oc36Pwxv3uw/maxresdefault.jpg",views:5335,likes:255,dur:"42:06",secs:2526},
+  {title:"close your eyes, im here..",url:"https://www.youtube.com/watch?v=30uwZjG7Amg",thumb:"https://i.ytimg.com/vi/30uwZjG7Amg/sddefault.jpg",views:5116,likes:255,dur:"1:00:31",secs:3631},
+  {title:"you are safe here",url:"https://www.youtube.com/watch?v=VacEplamT08",thumb:"https://i.ytimg.com/vi/VacEplamT08/maxresdefault.jpg",views:5193,likes:220,dur:"1:00:35",secs:3635},
+  {title:"i still see her in my dreams",url:"https://www.youtube.com/watch?v=_vh-B2l2pS4",thumb:"https://i.ytimg.com/vi/_vh-B2l2pS4/sddefault.jpg",views:5007,likes:210,dur:"1:00:00",secs:3600},
+  {title:"maybe in another life (sleep)",url:"https://www.youtube.com/watch?v=Gz9Ln98fXi8",thumb:"https://i.ytimg.com/vi/Gz9Ln98fXi8/maxresdefault.jpg",views:4743,likes:209,dur:"1:02:19",secs:3739},
+  {title:"maybe in another lifetime (long)",url:"https://www.youtube.com/watch?v=eTrPjUnvBVA",thumb:"https://i.ytimg.com/vi/eTrPjUnvBVA/sddefault.jpg",views:4595,likes:229,dur:"1:01:23",secs:3683},
+  {title:"it's okay, go to sleep",url:"https://www.youtube.com/watch?v=05Wxet-Qyhk",thumb:"https://i.ytimg.com/vi/05Wxet-Qyhk/maxresdefault.jpg",views:4618,likes:214,dur:"1:02:46",secs:3766},
+  {title:"i miss her more than anything",url:"https://www.youtube.com/watch?v=HJCXvn3kt_M",thumb:"https://i.ytimg.com/vi/HJCXvn3kt_M/sddefault.jpg",views:4088,likes:246,dur:"42:21",secs:2541},
+  {title:"i really wanted it to be her",url:"https://www.youtube.com/watch?v=uOGl6yHaTFc",thumb:"https://i.ytimg.com/vi/uOGl6yHaTFc/sddefault.jpg",views:3677,likes:176,dur:"30:57",secs:1857},
+  {title:"its 2am, you need to rest",url:"https://www.youtube.com/watch?v=i467GvoQHDQ",thumb:"https://i.ytimg.com/vi/i467GvoQHDQ/maxresdefault.jpg",views:3642,likes:166,dur:"1:02:42",secs:3762},
+  {title:"its time to sleep honey",url:"https://www.youtube.com/watch?v=C47ITuisEpI",thumb:"https://i.ytimg.com/vi/C47ITuisEpI/sddefault.jpg",views:3222,likes:147,dur:"1:02:47",secs:3767},
+  {title:"im tired.",url:"https://www.youtube.com/watch?v=RwEjp0w-8bY",thumb:"https://i.ytimg.com/vi/RwEjp0w-8bY/maxresdefault.jpg",views:3170,likes:172,dur:"1:02:05",secs:3725},
+  {title:"its 4am, go to sleep",url:"https://www.youtube.com/watch?v=A5P3ELkqeUw",thumb:"https://i.ytimg.com/vi/A5P3ELkqeUw/maxresdefault.jpg",views:3308,likes:172,dur:"1:01:52",secs:3712},
+  {title:"she was so pretty",url:"https://www.youtube.com/watch?v=47mdewz8I_A",thumb:"https://i.ytimg.com/vi/47mdewz8I_A/maxresdefault.jpg",views:3046,likes:169,dur:"1:00:28",secs:3628},
+  {title:"she is just a memory (long)",url:"https://www.youtube.com/watch?v=hKGF2_BMgoc",thumb:"https://i.ytimg.com/vi/hKGF2_BMgoc/maxresdefault.jpg",views:2049,likes:120,dur:"1:02:42",secs:3762},
+];
+
+// ── MUSIC GRID ──
+let mFilter = 'all';
+let mSearch = '';
+
+function fmtV(n){ return n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(0)+'K':n; }
+
+function matchMFilter(t) {
+  if (mFilter==='short')  return t.secs < 1800;
+  if (mFilter==='long')   return t.secs >= 3600;
+  if (mFilter==='memory') return /memory|forget/.test(t.title);
+  if (mFilter==='sleep')  return /sleep|rest|2am|4am|late|tired|honey/.test(t.title);
+  if (mFilter==='dream')  return /dream|lifetime|another/.test(t.title);
+  if (mFilter==='safe')   return /safe|okay|close your|eyes/.test(t.title);
+  return true;
+}
+
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+function renderMusic() {
+  const grid = document.getElementById('musicGrid');
+  if (!grid) return;
+  const q = mSearch.toLowerCase();
+  const filtered = tracks.filter(t => matchMFilter(t) && (!q || t.title.toLowerCase().includes(q)));
+  if (!filtered.length) {
+    grid.innerHTML = '<p class="no-results">no tracks found</p>';
+    return;
+  }
+  grid.innerHTML = filtered.map(t => {
+    const re = q ? new RegExp('('+escRe(q)+')','gi') : null;
+    const title = re ? t.title.replace(re,'<mark>$1</mark>') : t.title;
+    return `<a class="mc" href="${t.url}" target="_blank" rel="noopener">
+      <div class="mc-thumb">
+        <img src="${t.thumb}" alt="${t.title}" loading="lazy"/>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="dur-badge">${t.dur}</span>
+      </div>
+      <div class="mc-body">
+        <div class="mc-title">${title}</div>
+        <div class="mc-meta">
+          <span class="mc-stat">👁 <span>${fmtV(t.views)}</span></span>
+          <span class="mc-stat">♡ <span>${fmtV(t.likes)}</span></span>
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+// ── MUSIC FILTER BUTTONS ──
+const filterRow = document.getElementById('filterRow');
+if (filterRow) {
+  filterRow.addEventListener('click', function(e) {
+    const btn = e.target.closest('.mfbtn');
+    if (!btn) return;
+    filterRow.querySelectorAll('.mfbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    mFilter = btn.dataset.filter || 'all';
+    renderMusic();
+  });
+}
+
+// ── GLOBAL SEARCH ──
+const LEAF_SEL = '.card,.day-card,.wk,.creator-card,.res-card,.timeline-item,.jane-intro,.story-block,.plist-item,.pillar,.top-track';
+
+function getLeaves() {
+  return Array.from(document.querySelectorAll(LEAF_SEL));
+}
+
+function doSearch() {
+  const input = document.getElementById('globalSearch');
+  const countEl = document.getElementById('searchCount');
+  const q = input ? input.value.trim().toLowerCase() : '';
+
+  // remove old highlights
+  document.querySelectorAll('mark.sh').forEach(m => {
+    m.outerHTML = m.textContent;
+  });
+
+  const leaves = getLeaves();
+
+  if (!q) {
+    if (countEl) countEl.textContent = '';
+    leaves.forEach(el => el.classList.remove('search-hidden'));
+    mSearch = '';
+    renderMusic();
+    return;
+  }
+
+  // filter music
+  mSearch = q;
+  renderMusic();
+
+  // filter leaf elements
+  let matched = 0;
+  const re = new RegExp('('+escRe(q)+')','gi');
+  leaves.forEach(el => {
+    if (el.textContent.toLowerCase().includes(q)) {
+      el.classList.remove('search-hidden');
+      matched++;
+      // highlight text nodes inside this leaf
+      highlightLeaf(el, re);
+    } else {
+      el.classList.add('search-hidden');
+    }
+  });
+
+  const musicHits = tracks.filter(t => t.title.toLowerCase().includes(q)).length;
+  const total = matched + musicHits;
+  if (countEl) countEl.textContent = total > 0 ? total + ' result' + (total!==1?'s':'') : 'no results';
+}
+
+function highlightLeaf(el, re) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const nodes = [];
+  let n;
+  while ((n = walker.nextNode())) nodes.push(n);
+  nodes.forEach(node => {
+    if (!node.parentNode) return;
+    const p = node.parentNode;
+    if (p.tagName === 'SCRIPT' || p.tagName === 'STYLE' || p.tagName === 'MARK') return;
+    const txt = node.textContent;
+    if (!re.test(txt)) { re.lastIndex = 0; return; }
+    re.lastIndex = 0;
+    const span = document.createElement('span');
+    span.innerHTML = txt.replace(re, '<mark class="sh">$1</mark>');
+    re.lastIndex = 0;
+    p.replaceChild(span, node);
+  });
+}
+
+// ── WIRE UP SEARCH INPUT + CLEAR ──
+const searchInput = document.getElementById('globalSearch');
+const clearBtn = document.getElementById('clearBtn');
+
+if (searchInput) {
+  searchInput.addEventListener('input', doSearch);
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      doSearch();
+    }
+  });
+}
+if (clearBtn) {
+  clearBtn.addEventListener('click', function() {
+    if (searchInput) searchInput.value = '';
+    doSearch();
+  });
+}
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.05 });
+reveals.forEach(r => obs.observe(r));
+
+// ── INIT ──
+renderMusic();
+
+}); // end DOMContentLoaded
+</script>
+</body>
+</html>  .search-hidden { display: none !important; }
 
   /* ── HERO ── */
   .hero {
