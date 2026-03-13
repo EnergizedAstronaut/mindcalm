@@ -1,4 +1,4 @@
-# Jane — Psychology, ASMR & Music for the Soul
+# Jane — Psychology, ASMR & Ambient Music 
 
 A single-page web app combining:
 - **50-track ambient music playlist** from the *i still miss her* YouTube channel
